@@ -1,0 +1,15 @@
+---
+import Icon from '../../components/Icon.astro';
+import { heroes } from '../../data/heroes';
+import '../../styles/heroes/gallery.css';
+---
+<!doctype html>
+<html lang="id">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Empat cara menghidupkan BKC — Hero explorations</title><meta name="description" content="Empat mockup hero BKC dengan animasi kontur, orbit, bumi ASCII, dan indeks interaktif."/><meta name="robots" content="noindex,nofollow"/><link rel="stylesheet" href="/bkc/styles.css"/><link rel="icon" href="/bkc/assets/mark-squirrel-green.png"/></head>
+<body class="hg-body"><main class="hg-wrap">
+  <header class="hg-header"><a href="/heroes/" class="hg-brand"><img src="/bkc/assets/logo-emblem.png" width="42" height="42" alt="Logo Bumi Kala Charta"/><span>BUMI KALA CHARTA</span></a><a href="/" class="hg-back">Mockup full page<Icon name="arrow" size={16}/></a></header>
+  <section class="hg-intro"><div><span class="hg-eyebrow">Eksplorasi hero / 01—04</span><h1>Identitas yang sama.<br/><span>Empat cara bergerak.</span></h1></div><p>Empat kesan pertama untuk BKC. Jelajahi komposisi, karakter gerak, dan interaksi setiap hero.</p></section>
+  <div class="hg-legend"><span><i></i>Animasi aktif saat dibuka</span><span>Desktop & mobile</span><span>Design system & aset asli BKC</span></div>
+  <section class="hg-grid" aria-label="Empat alternatif hero">{heroes.map(hero => <article class={`hg-card hg-card-${hero.slug}`}><a href={`/heroes/${hero.slug}/`} class="hg-preview" aria-label={`Buka hero ${hero.name}`}><img src={`/hero-previews/${hero.slug}.webp`} width="1440" height="1000" alt={`Pratinjau hero ${hero.name}`} loading="eager"/><span class="hg-play"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 3 11 7-11 7Z"/></svg>Lihat bergerak</span></a><div class="hg-card-copy"><div class="hg-card-heading"><div><span class="hg-eyebrow">{hero.number} / {hero.descriptor}</span><a href={`/heroes/${hero.slug}/`}><h2>{hero.name}</h2></a></div><a class="hg-circle" href={`/heroes/${hero.slug}/`} aria-label={`Jelajahi ${hero.name}`}><Icon name="arrow" size={24}/></a></div><p>{hero.description}</p><div class="hg-tags">{hero.tags.map(tag => <span>{tag}</span>)}</div></div></article>)}</section>
+  <footer class="hg-footer"><div><span class="hg-eyebrow">Dibuat untuk dijelajahi</span><p>Setiap alternatif berisi navigasi dan satu hero. Tombol jeda tersedia di atas; pengaturan pengurangan gerak pada perangkat dihormati.</p></div><a href="/">Lihat tiga mockup full page<Icon name="arrow" size={18}/></a><span class="hg-fine">BKC / Eksplorasi desain · Astro · Tanpa backend</span></footer>
+</main></body></html>

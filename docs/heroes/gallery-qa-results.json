@@ -1,0 +1,20 @@
+[
+  {
+    "page": "gallery",
+    "width": 1440,
+    "overflow": false,
+    "broken": [],
+    "violations": []
+  },
+  {
+    "page": "gallery",
+    "width": 390,
+    "overflow": false,
+    "broken": [],
+    "violations": []
+  },
+  {
+    "check": "mobile-menu-no-js-history-back",
+    "status": "pass"
+  }
+]

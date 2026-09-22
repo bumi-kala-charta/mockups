@@ -1,0 +1,22 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { explorations } from '../data/demo';
+const { active = 'atlas', page = 'home' } = Astro.props;
+const home = page === 'profile' ? `/${active}/` : '';
+---
+<div class="exploration-bar" id="top">
+  <a href="/" class="exploration-home" aria-label="Kembali ke galeri tiga mockup"><Icon name="grid" size={14} /><span>Eksplorasi BKC</span></a>
+  <nav aria-label="Pilihan mockup" class="exploration-options">{explorations.map(item => <a href={`/${item.slug}/${page === 'profile' ? 'tentang/' : ''}`} aria-current={active === item.slug ? 'page' : undefined}><span>{item.number}</span> {item.name}</a>)}</nav>
+  <span class="demo-label">Konten contoh</span>
+</div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <Logo href={page === 'profile' ? home : '#top'} />
+    <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama">
+      <a href={`/${active}/tentang/`} aria-current={page === 'profile' ? 'page' : undefined}>Tentang BKC</a><a href={`${home}#karya`}>Karya</a><a href={`${home}#peta`}>Jelajah peta</a><a href={`${home}#pengetahuan`}>Pengetahuan</a>
+    </nav>
+    <button class="button header-cta" data-open="collab">Mari berkolaborasi<Icon name="arrow" size={17} /></button>
+    <button class="mobile-toggle icon-button" aria-label="Buka menu" aria-expanded="false" aria-controls="primary-nav"><Icon name="menu" /></button>
+  </div>
+</header>

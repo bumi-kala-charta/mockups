@@ -1,0 +1,16 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+const { theme = 'atlas', page = 'home' } = Astro.props;
+const home = page === 'profile' ? `/${theme}/` : '';
+const profile = `/${theme}/tentang/`;
+---
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div><Logo href={page === 'profile' ? home : '#top'} /><p>Memahami bumi.<br />Membagikan pengetahuan.</p></div>
+    <div class="footer-links"><span class="eyebrow">Jelajahi</span><a href={profile}>Tentang BKC</a><a href={`${home}#karya`}>Portofolio karya</a><a href={`${home}#peta`}>Peta pekerjaan</a><a href={`${home}#pengetahuan`}>Pustaka pengetahuan</a></div>
+    <div class="footer-links"><span class="eyebrow">Terhubung</span><button data-open="collab">Mulai percakapan<Icon name="arrow" size={16} /></button><a href={`${home}#kegiatan`}>Ruang belajar</a><a href={`${profile}#visi-misi`}>Visi & nilai BKC</a><a href="/">Tiga eksplorasi desain</a></div>
+    <div class="footer-coordinate"><Icon name="compass" size={28} /><span class="eyebrow">Berangkat dari Bandung</span><span>6,9175° LS<br />107,6191° BT</span><small>Indonesia · WGS 84</small></div>
+  </div>
+  <div class="wrap footer-bottom"><span>© 2026 Bumi Kala Charta</span><span>Mockup eksplorasi · Profil, pekerjaan & publikasi adalah contoh.</span><a href="#top">Kembali ke atas<Icon name="north" size={14} /></a></div>
+</footer>

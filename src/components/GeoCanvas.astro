@@ -1,0 +1,27 @@
+---
+import { geoMercator, geoPath, geoGraticule } from 'd3-geo';
+import { feature } from 'topojson-client';
+import atlas from 'world-atlas/countries-50m.json';
+import type { Topology, GeometryCollection } from 'topojson-specification';
+import { projects } from '../data/demo';
+const { hero = false, class: className = '' } = Astro.props;
+const projection = geoMercator().center([118, -2.2]).scale(1080).translate([480, 210]).clipExtent([[0,0],[960,420]]);
+const path = geoPath(projection);
+const countries = feature(atlas as unknown as Topology, atlas.objects.countries as unknown as GeometryCollection).features;
+const graticule = geoGraticule().extent([[91,-16],[146,13]]).step([5,5])();
+---
+<div class:list={['geo-canvas', className, { 'geo-hero': hero }]}>
+  <div class="map-world">
+    <svg viewBox="0 0 960 420" class="geo-map" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+      <path d={path(graticule)} class="geo-graticule" />
+      {countries.map(c => <path d={path(c)} class:list={['geo-land', {'geo-indonesia': String(c.id) === '360'}]} />)}
+      <text x="194" y="153" class="geo-label">SUMATERA</text><text x="404" y="309" class="geo-label">JAWA</text><text x="447" y="167" class="geo-label">KALIMANTAN</text><text x="578" y="188" class="geo-label">SULAWESI</text><text x="849" y="213" class="geo-label">PAPUA</text>
+      <text x="732" y="343" class="geo-ocean">SAMUDRA HINDIA</text><text x="71" y="52" class="geo-ocean">5° LU</text><text x="73" y="372" class="geo-ocean">10° LS</text>
+    </svg>
+    {projects.map((p, i) => {
+      const [x,y] = projection([...p.coordinates])!;
+      return hero ? <a class="geo-pin hero-pin" style={`left:${x/9.6}%;top:${y/4.2}%`} href="#peta" data-map-jump={p.id} aria-label={`Jelajahi ${p.title}`}><span>{String(i+1).padStart(2,'0')}</span></a> : <button class="geo-pin" style={`left:${x/9.6}%;top:${y/4.2}%`} data-map-project={p.id} data-kind={p.kind} aria-label={`Lokasi contoh: ${p.title}`} aria-pressed={i === 0}><span>{String(i+1).padStart(2,'0')}</span></button>
+    })}
+  </div>
+  <div class="map-attribution">Geometri: Natural Earth · Titik contoh, WGS 84</div>
+</div>

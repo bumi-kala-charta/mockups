@@ -1,0 +1,8 @@
+---
+import { ArrowUpRight, ArrowRight, ArrowDown, Menu, X, Map, ScanLine, Users, Layers, Crosshair, Plus, Minus, MoveUpRight, ChevronDown, ChevronRight, FileText, BookOpen, Compass, LocateFixed, Globe, CalendarDays, GraduationCap, MessageSquare, Grid2x2, Check, CornerDownRight, SlidersHorizontal, Search, RotateCcw } from '@lucide/astro';
+const icons = { arrow: ArrowUpRight, right: ArrowRight, down: ArrowDown, menu: Menu, close: X, map: Map, scan: ScanLine, users: Users, layers: Layers, crosshair: Crosshair, plus: Plus, minus: Minus, north: MoveUpRight, chevron: ChevronDown, next: ChevronRight, paper: FileText, book: BookOpen, compass: Compass, locate: LocateFixed, globe: Globe, calendar: CalendarDays, graduation: GraduationCap, message: MessageSquare, grid: Grid2x2, check: Check, turn: CornerDownRight, sliders: SlidersHorizontal, search: Search, reset: RotateCcw };
+interface Props { name?: string; size?: number; class?: string }
+const { name = 'arrow', size = 20, class: className = '' } = Astro.props;
+const Glyph = icons[name as keyof typeof icons] || ArrowUpRight;
+---
+<Glyph size={size} stroke-width={1.6} class={className} aria-hidden="true" />

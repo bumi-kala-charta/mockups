@@ -1,0 +1,33 @@
+---
+import HeroLayout from '../../layouts/HeroLayout.astro';
+import Icon from '../../components/Icon.astro';
+import '../../styles/heroes/kontur.css';
+---
+<HeroLayout title="Kontur — Eksplorasi hero BKC" variant="kontur">
+  <section class="kontur-hero h-wrap" aria-labelledby="kontur-title">
+    <div class="kontur-copy">
+      <div class="h-eyebrow kontur-eyebrow"><span></span>Berangkat dari bumi</div>
+      <h1 id="kontur-title">Membaca bumi.<br/>Membuka<br/><em>kemungkinan.</em></h1>
+      <p>Setiap bentang menyimpan cerita. Kami mempertemukan geodesi, riset, dan manusia untuk membacanya bersama.</p>
+      <div class="kontur-actions"><a class="h-button h-button--accent" href="/atlas/#karya">Jelajahi karya<Icon name="arrow" size={19}/></a><a class="kontur-secondary" href="/ruang/#tentang">Kenali BKC<Icon name="right" size={18}/></a></div>
+      <div class="kontur-practices"><span><b>01</b>Amati</span><span><b>02</b>Petakan</span><span><b>03</b>Bagikan</span></div>
+    </div>
+    <div class="kontur-field" data-kontur-field data-density="bentang">
+      <div class="kontur-terrain" aria-hidden="true"><span class="bkc-contour bkc-contour--ridge kontur-plate"></span><span class="bkc-contour kontur-detail" data-pattern-density="dense"></span><div class="kontur-scanner"><i></i><span>MEMBACA BENTANG</span></div></div>
+      <div class="kontur-field-top"><div><span class="h-eyebrow">Lembar eksplorasi</span><strong>Permukaan & perspektif</strong></div><Icon name="crosshair" size={24}/></div>
+      <div class="kontur-axis" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div>
+      <div class="kontur-survey" aria-hidden="true"><i></i><span class="kontur-survey-tag">Satu titik.<br/>Banyak cerita.</span></div>
+      <div class="kontur-marker"><img src="/bkc/assets/mark-squirrel-white.png" alt="Mark tupai BKC" width="48" height="48"/><span>BUMI<br/>KALA<br/>CHARTA</span></div>
+      <div class="kontur-field-bottom"><div class="kontur-density" aria-label="Kepadatan kontur"><button type="button" aria-pressed="true" data-density="bentang">Bentang</button><button type="button" aria-pressed="false" data-density="detail">Detail</button></div><span>POLA SINTETIS<br/>ASET KONTUR BKC</span></div>
+    </div>
+    <div class="kontur-baseline"><span>Komunitas & praktik geospasial</span><span><Icon name="locate" size={14}/>Bandung, Indonesia</span><a href="/atlas/">Dari lapangan, menjadi pengetahuan<Icon name="arrow" size={17}/></a></div>
+  </section>
+  <script>
+    const field = document.querySelector<HTMLElement>('[data-kontur-field]');
+    const buttons = field?.querySelectorAll<HTMLButtonElement>('button[data-density]');
+    buttons?.forEach(button => button.addEventListener('click', () => {
+      if (field) field.dataset.density = button.dataset.density;
+      buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    }));
+  </script>
+</HeroLayout>

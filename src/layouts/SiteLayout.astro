@@ -1,0 +1,28 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import DemoDialogs from '../components/DemoDialogs.astro';
+import '../styles/global.css';
+const { theme, title, page = 'home', description = 'Bumi Kala Charta. Ruang untuk memahami bumi melalui proyek, riset, dan pengetahuan yang dibagikan.' } = Astro.props;
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Bumi Kala Charta</title><meta name="description" content={description} />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="icon" href="/bkc/assets/mark-squirrel-green.png" />
+    <link rel="stylesheet" href="/bkc/styles.css" />
+    <link rel="preload" href="/bkc/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/bkc/assets/fonts/ibm-plex-sans-500.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content={theme === 'observatorium' ? '#1B221E' : '#EDECE9'} />
+  </head>
+  <body class:list={['theme-' + theme, { 'profile-page': page === 'profile' }]}>
+    <a class="skip-link" href="#main">Lewati navigasi</a>
+    <Header active={theme} page={page} />
+    <main id="main"><noscript><p class="noscript-note wrap">{page === 'profile' ? 'Profil dan daftar isi dapat dibaca tanpa JavaScript. Aktifkan JavaScript untuk menu ponsel dan simulasi kolaborasi.' : 'Aktifkan JavaScript untuk mencoba peta, filter, dan detail. Ringkasan halaman tetap bisa dibaca.'}</p></noscript><slot /></main>
+    <Footer theme={theme} page={page} />
+    <DemoDialogs profileOnly={page === 'profile'} />
+    <script>import '../scripts/interactions';</script>
+  </body>
+</html>

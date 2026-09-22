@@ -1,0 +1,35 @@
+---
+import Icon from '../components/Icon.astro';
+import { heroes } from '../data/heroes';
+import '../styles/heroes/shared.css';
+interface Props { title: string; variant: 'kontur' | 'orbit' | 'sinyal' | 'indeks'; description?: string }
+const { title, variant, description = 'Eksplorasi hero Bumi Kala Charta dengan design system BKC dan animasi interaktif.' } = Astro.props;
+---
+<!doctype html>
+<html lang="id" data-motion="running">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title><meta name="description" content={description} /><meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="/bkc/styles.css" /><link rel="icon" href="/bkc/assets/mark-squirrel-green.png" />
+    <link rel="preload" href="/bkc/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/bkc/assets/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline>try { document.documentElement.dataset.motion = window.matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem('bkc-hero-paused') === 'true' ? 'paused' : 'running'; } catch { document.documentElement.dataset.motion = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'running'; }</script>
+    <noscript><style is:inline>*,*::before,*::after{animation:none!important}.h-motion-toggle,.kontur-density{display:none!important}</style></noscript>
+  </head>
+  <body class={`hero-page hero-theme-${variant}`}>
+    <a class="h-skip" href="#main">Langsung ke konten</a>
+    <div class="h-showroom">
+      <a class="h-showroom-home" href="/heroes/"><Icon name="grid" size={14} /><span>Galeri hero</span></a>
+      <nav class="h-options" aria-label="Alternatif hero">{heroes.map(hero => <a href={`/heroes/${hero.slug}/`} aria-current={variant === hero.slug ? 'page' : undefined}><span>{hero.number}</span>{hero.name}</a>)}</nav>
+      <button class="h-motion-toggle" type="button" aria-pressed="false" aria-label="Jeda animasi" data-motion-toggle><svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path class="h-pause-glyph" d="M7 4v12M13 4v12"/><path class="h-play-glyph" d="m7 4 9 6-9 6Z"/></svg><span data-motion-label>Jeda animasi</span></button>
+    </div>
+    <header class="h-header h-wrap">
+      <a href="/heroes/" class="h-brand" aria-label="Bumi Kala Charta — galeri hero"><img src="/bkc/assets/logo-emblem.png" alt="" width="46" height="46" /><span>BUMI KALA<br/>CHARTA</span></a>
+      <nav class="h-navigation" aria-label="Navigasi BKC"><a href="/ruang/#tentang">Tentang BKC</a><a href="/atlas/#karya">Karya & riset</a><a href="/ruang/#kegiatan">Ruang belajar</a></nav>
+      <a class="h-header-link" href="/ruang/#kegiatan">Temukan ruang bersama<Icon name="arrow" size={18}/></a>
+      <details class="h-mobile-nav"><summary aria-label="Buka navigasi BKC"><Icon name="menu" size={22}/></summary><nav aria-label="Navigasi BKC ponsel"><a href="/ruang/#tentang">Tentang BKC</a><a href="/atlas/#karya">Karya & riset</a><a href="/ruang/#kegiatan">Ruang belajar</a></nav></details>
+    </header>
+    <main id="main"><slot /></main>
+    <script src="../scripts/heroes/motion.ts"></script>
+  </body>
+</html>

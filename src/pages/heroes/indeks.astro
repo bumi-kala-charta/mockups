@@ -1,0 +1,83 @@
+---
+import HeroLayout from '../../layouts/HeroLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { geoMercator, geoPath, geoGraticule } from 'd3-geo';
+import { feature } from 'topojson-client';
+import atlas from 'world-atlas/countries-50m.json';
+import type { Topology, GeometryCollection } from 'topojson-specification';
+import '../../styles/heroes/indeks.css';
+
+const countries = feature(atlas as unknown as Topology, atlas.objects.countries as unknown as GeometryCollection).features;
+const views = [
+  { id: 'lapangan', number: '01', label: 'Kerja lapangan', note: 'Mengamati. Mengukur. Memetakan.', heading: ['Berangkat', 'dari sebuah titik.'], link: '/atlas/#karya', cta: 'Telusuri pekerjaan', center: [108.4, -6.4], scale: 2050, icon: 'crosshair', category: 'Survei & pemetaan' },
+  { id: 'riset', number: '02', label: 'Riset', note: 'Bertanya. Menguji. Membagikan.', heading: ['Membaca pola.', 'Membuka pertanyaan.'], link: '/observatorium/#pengetahuan', cta: 'Buka pengetahuan', center: [115, -2.2], scale: 600, icon: 'layers', category: 'Data & pengetahuan' },
+  { id: 'belajar', number: '03', label: 'Ruang belajar', note: 'Bertemu. Mencoba. Bertumbuh.', heading: ['Beda perspektif.', 'Satu rasa ingin tahu.'], link: '/ruang/#kegiatan', cta: 'Temukan ruang belajar', center: [107.8, -6.8], scale: 2550, icon: 'users', category: 'Kelas & diskusi' },
+];
+---
+
+<HeroLayout title="Indeks · Hero 04" variant="indeks" description="Eksplorasi hero BKC dengan tipografi editorial, atlas bergerak, dan indeks tiga lini kerja.">
+  <section class="h-wrap indeks-hero" aria-labelledby="indeks-title" data-indeks-root>
+    <div class="indeks-heading-meta">
+      <span class="h-eyebrow"><span class="indeks-live-dot" aria-hidden="true"></span>Komunitas & konsultansi geospasial</span>
+      <span class="h-eyebrow indeks-edition">BANDUNG, INDONESIA / BUMI KALA CHARTA</span>
+    </div>
+
+    <div class="indeks-display">
+      <h1 id="indeks-title"><span class="indeks-line"><span>Ilmu bertemu.</span></span><span class="indeks-line"><span>Perspektif tumbuh.</span></span></h1>
+      <div class="indeks-display-note"><img src="/bkc/assets/mark-squirrel-green.png" width="44" height="44" alt="" /><span>Ruang bertemu<br />untuk sudut pandang baru.</span></div>
+    </div>
+
+    <div class="indeks-intro">
+      <p>Dari pengukuran di lapangan hingga pengetahuan yang dibagikan.<br class="indeks-desktop-break" /> Kami menghubungkan ruang, data, dan rasa ingin tahu.</p>
+      <a class="h-button h-button--accent" href="/atlas/#tentang">Kenali BKC<Icon name="arrow" size={19} /></a>
+    </div>
+
+    <div class="indeks-workspace">
+      <div class="indeks-atlas" id="indeks-panel" role="region" aria-label="Eksplorasi tiga lini kerja" data-indeks-view="lapangan">
+        <div class="indeks-map-window" aria-hidden="true">
+          {views.map((view, i) => {
+            const projection = geoMercator().center(view.center as [number, number]).scale(view.scale).translate([550, 170]).clipExtent([[0,0],[900,360]]);
+            const path = geoPath(projection);
+            const graticule = geoGraticule().extent([[89,-17],[149,18]]).step(view.id === 'riset' ? [5,5] : [1,1])();
+            const origin = projection([107.6191,-6.9175])!;
+            return <svg class:list={['indeks-geography', {'is-visible': i===0}]} data-indeks-geography={view.id} viewBox="0 0 900 360" preserveAspectRatio="xMidYMid slice">
+              <path class="indeks-graticule" d={path(graticule)} />
+              {countries.map(country => <path class:list={['indeks-country', {'indeks-country-id': String(country.id)==='360'}]} d={path(country)} />)}
+              <g transform={`translate(${origin[0]},${origin[1]})`}>
+                <circle class="indeks-location-ring" r="22" />
+                <circle class="indeks-location-core" r="5" />
+                <text x="17" y="-18" class="indeks-map-label">BANDUNG</text>
+              </g>
+            </svg>;
+          })}
+          <div class="indeks-scanner"><span></span><span></span><span></span></div>
+          <div class="indeks-map-crosshair"><Icon name="crosshair" size={42} /></div>
+        </div>
+
+        <div class="indeks-atlas-top"><span class="h-eyebrow">CATATAN TENTANG BUMI</span><Icon name="north" size={22} /></div>
+        <div class="indeks-view-copy" aria-live="polite" aria-atomic="true">
+          {views.map((view, i) => <div class="indeks-copy-slide" data-indeks-copy={view.id} hidden={i!==0}>
+            <span class="indeks-view-category"><Icon name={view.icon} size={16} />{view.category}</span>
+            <h2>{view.heading[0]}<br />{view.heading[1]}</h2>
+            <a href={view.link} class="indeks-atlas-link">{view.cta}<Icon name="arrow" size={18} /></a>
+          </div>)}
+        </div>
+        <div class="indeks-atlas-bottom"><span>−6,9175° / 107,6191° · WGS 84</span><span>Geometri: Natural Earth</span></div>
+      </div>
+
+      <div class="indeks-index">
+        <div class="indeks-index-label"><span class="h-eyebrow">Pilih sudut pandang</span><span class="h-eyebrow">01—03</span></div>
+        <div class="indeks-options" role="group" aria-label="Pilih lini kerja BKC">
+          {views.map((view, i) => <button class="indeks-option" data-indeks-choice={view.id} aria-pressed={i===0} aria-controls="indeks-panel">
+            <span class="indeks-option-number">{view.number}</span>
+            <span class="indeks-option-copy"><span class="indeks-option-title">{view.label}</span><span class="indeks-option-note">{view.note}</span></span>
+            <span class="indeks-option-arrow"><Icon name="arrow" size={21} /></span>
+          </button>)}
+        </div>
+        <span class="indeks-index-note">Tiga cara bergerak.<br />Satu semangat berbagi pengetahuan.</span>
+      </div>
+    </div>
+    <div class="indeks-colophon"><span class="h-eyebrow">GEODESI · GEOMATIKA · KOLABORASI</span><span>Peta konseptual · Bandung sebagai titik referensi</span></div>
+  </section>
+</HeroLayout>
+<script>import '../../scripts/heroes/indeks';</script>

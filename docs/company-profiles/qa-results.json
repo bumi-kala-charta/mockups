@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "atlas",
+    "width": 1440,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "brokenLinks": [],
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "observatorium",
+    "width": 1440,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "brokenLinks": [],
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "ruang",
+    "width": 1440,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "brokenLinks": [],
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "atlas",
+    "width": 1024,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "slug": "observatorium",
+    "width": 1024,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "slug": "ruang",
+    "width": 1024,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "slug": "atlas",
+    "width": 768,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "slug": "observatorium",
+    "width": 768,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "slug": "ruang",
+    "width": 768,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "slug": "atlas",
+    "width": 390,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "brokenLinks": [],
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "observatorium",
+    "width": 390,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "brokenLinks": [],
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "ruang",
+    "width": 390,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "brokenLinks": [],
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "atlas",
+    "width": 360,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "slug": "observatorium",
+    "width": 360,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "slug": "ruang",
+    "width": 360,
+    "overflow": false,
+    "brokenImages": [],
+    "missingAnchors": [],
+    "errors": []
+  },
+  {
+    "check": "navigation",
+    "status": "landing links, gallery entries, and profile-to-profile switching pass"
+  },
+  {
+    "check": "no-js",
+    "status": "all three profiles and native FAQs work"
+  }
+]

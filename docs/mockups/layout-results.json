@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "atlas",
+    "width": 360,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "observatorium",
+    "width": 360,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "ruang",
+    "width": 360,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "gallery",
+    "width": 360,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "atlas",
+    "width": 768,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "observatorium",
+    "width": 768,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "ruang",
+    "width": 768,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "gallery",
+    "width": 768,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "atlas",
+    "width": 1024,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "observatorium",
+    "width": 1024,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "ruang",
+    "width": 1024,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  },
+  {
+    "slug": "gallery",
+    "width": 1024,
+    "overflow": false,
+    "brokenAnchors": [],
+    "brokenImages": []
+  }
+]

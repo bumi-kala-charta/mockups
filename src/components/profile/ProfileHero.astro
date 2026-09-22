@@ -1,0 +1,23 @@
+---
+import Icon from '../Icon.astro';
+interface Props { theme: 'atlas' | 'observatorium' | 'ruang' }
+const { theme } = Astro.props;
+---
+<div class="wrap profile-breadcrumb"><a href={`/${theme}/`}>Beranda</a><Icon name="next" size={13} /><span aria-current="page">Tentang BKC</span><span class="profile-edition">COMPANY PROFILE / 2026</span></div>
+
+{theme === 'atlas' && <section class="wrap profile-hero profile-hero-atlas" aria-labelledby="profile-title">
+  <div class="profile-hero-copy"><span class="eyebrow">01 / Mengenal Bumi Kala Charta</span><h1 id="profile-title">Membaca bumi.<br />Merangkai<br /><span>arti.</span></h1><p>Kami hadir di antara ilmu, ruang, dan manusia. Memetakan yang terlihat, memahami yang saling terhubung.</p><a href="#cerita" class="text-link">Ini cerita kami<Icon name="down" size={18} /></a></div>
+  <div class="profile-atlas-plate"><span class="bkc-contour bkc-contour--ridge" aria-hidden="true"></span><div class="profile-plate-top"><span class="eyebrow">CATATAN TENTANG KAMI</span><Icon name="compass" size={28} /></div><div class="profile-name-stack"><span>Bumi<small>Ruang tempat kita berpijak.</small></span><span>Kala<small>Waktu yang terus kita pelajari.</small></span><span>Charta<small>Peta untuk berbagi pemahaman.</small></span></div><div class="profile-plate-bottom"><img src="/bkc/assets/mark-squirrel-green.png" width="35" height="35" alt="" /><span>BANDUNG, INDONESIA<br />06°55′ LS / 107°37′ BT</span></div></div>
+</section>}
+
+{theme === 'observatorium' && <section class="wrap profile-hero profile-hero-obs" aria-labelledby="profile-title">
+  <div class="profile-obs-top"><span class="eyebrow"><span class="status-mark"></span>PROFIL KOLEKTIF / BKC—01</span><span class="eyebrow">GEODESI · GEOMATIKA</span></div>
+  <div class="profile-obs-main"><div class="profile-hero-copy"><h1 id="profile-title">Ketelitian<br />punya <span>tujuan.</span></h1><p>Memahami bumi dengan data. Memberi makna melalui konteks. Menjadikannya pengetahuan yang dapat dibagikan.</p><a href="#cerita" class="text-link">Telusuri profil BKC<Icon name="down" size={18} /></a></div><div class="profile-instrument" aria-hidden="true"><span class="profile-instrument-axis axis-x"></span><span class="profile-instrument-axis axis-y"></span><div class="profile-instrument-ring ring-outer"></div><div class="profile-instrument-ring ring-middle"></div><div class="profile-instrument-ring ring-inner"></div><span class="instrument-label label-n">N / PENGETAHUAN</span><span class="instrument-label label-s">S / PENGALAMAN</span><span class="instrument-label label-w">W</span><span class="instrument-label label-e">E</span><img src="/bkc/assets/mark-squirrel-white.png" width="78" height="78" alt="" /><span class="instrument-point"></span></div></div>
+  <div class="profile-obs-register"><div><span>IDENTITAS</span><strong>Bumi Kala Charta</strong></div><div><span>TITIK BERANGKAT</span><strong>Bandung / Indonesia</strong></div><div><span>CARA BERGERAK</span><strong>Proyek · Riset · Kegiatan</strong></div><Icon name="crosshair" size={24} /></div>
+</section>}
+
+{theme === 'ruang' && <section class="profile-hero profile-hero-ruang" aria-labelledby="profile-title"><span class="bkc-orbit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><div class="wrap"><div class="profile-ruang-top"><span class="eyebrow">HALO, KAMI BUMI KALA CHARTA.</span><img src="/bkc/assets/mark-squirrel-white.png" width="48" height="48" alt="" /><span class="eyebrow">BANDUNG, INDONESIA</span></div><h1 id="profile-title">Ruang untuk<br /><span>tumbuh bersama.</span></h1><p>Beragam latar belakang. Satu rasa ingin tahu.<br />{' '}Kami bertemu untuk memahami bumi dan membagikan apa yang kami pelajari.</p><a class="button light" href="#cerita">Kenali kami lebih dekat<Icon name="down" size={18} /></a><div class="profile-ruang-bottom"><span>Ilmu yang membumi.</span><span>Pertemuan yang berarti.</span><span>Pengetahuan yang dibagi.</span></div></div></section>}
+
+<nav class="wrap profile-index" aria-label="Daftar isi company profile">{[
+  ['cerita', 'Cerita kami'], ['visi-misi', 'Visi & misi'], ['nilai', 'Nilai kami'], ['bidang', 'Bidang kerja'], ['perjalanan', 'Perjalanan'], ['tim', 'Tim'], ['kontak', 'Terhubung'],
+].map(([id, label], i) => <a href={`#${id}`}><span>0{i + 1}</span>{label}<Icon name="down" size={13} /></a>)}</nav>

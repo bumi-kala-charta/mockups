@@ -1,0 +1,29 @@
+---
+import GeoCanvas from './GeoCanvas.astro';
+import Icon from './Icon.astro';
+import { projects } from '../data/demo';
+const { class: className = '' } = Astro.props;
+---
+<div class:list={['map-explorer', className]} data-explorer>
+  <div class="map-toolbar">
+    <div class="map-title"><Icon name="layers" size={18} /><span>Atlas pekerjaan</span><span class="map-count" aria-live="polite">6 lokasi contoh</span></div>
+    <div class="filter-chips" role="group" aria-label="Filter jenis pada peta">{['Semua','Proyek','Riset','Kegiatan'].map((kind, i) => <button data-map-filter={kind} aria-pressed={i === 0}>{kind}</button>)}</div>
+  </div>
+  <div class="map-body">
+    <div class="map-view"><GeoCanvas />
+      <div class="map-compass"><Icon name="north" size={20} /><span>U</span></div>
+      <div class="map-controls"><button data-zoom="in" class="icon-button" aria-label="Perbesar peta"><Icon name="plus" size={18} /></button><button data-zoom="out" class="icon-button" aria-label="Perkecil peta"><Icon name="minus" size={18} /></button><button data-zoom="reset" class="icon-button" aria-label="Atur ulang peta"><Icon name="locate" size={18} /></button></div>
+      <div class="map-scale"><span></span><small>500 km · skala indikatif</small></div>
+    </div>
+    <aside class="map-inspector" aria-label="Detail lokasi terpilih">
+      {projects.map((p, i) => <div class="map-project-detail" data-map-detail={p.id} hidden={i !== 0}>
+        <div class="map-detail-top"><span class="eyebrow">Titik {p.number} / 06</span><span class="tag">{p.kind}</span></div>
+        <h3>{p.title}</h3><p class="location"><Icon name="locate" size={15} />{p.place}</p>
+        <p class="map-summary">{p.description}</p>
+        <div class="map-related"><span class="eyebrow">Pengetahuan terkait</span><button data-open={`publication-${p.id}`}><Icon name="paper" size={19} /><span>{p.publication}<small>{p.format} · {p.read} baca</small></span><Icon name="arrow" size={17} /></button></div>
+        <button class="text-link" data-open={`project-${p.id}`}>Lihat cerita lengkap<Icon name="right" size={17} /></button>
+      </div>)}
+    </aside>
+  </div>
+  <div class="map-index" role="group" aria-label="Pilih lokasi dari daftar">{projects.map((p,i) => <button data-map-select={p.id} data-kind={p.kind} aria-pressed={i === 0}><span>{p.number}</span>{p.place.split(',')[0]}<Icon name="arrow" size={13} /></button>)}</div>
+</div>

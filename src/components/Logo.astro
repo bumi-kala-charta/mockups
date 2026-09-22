@@ -1,0 +1,7 @@
+---
+const { class: className = '', compact = false, href = '#top' } = Astro.props;
+---
+<a class:list={['brand-lockup', className, { compact }]} href={href} aria-label={href === '#top' ? 'Bumi Kala Charta, kembali ke atas' : 'Bumi Kala Charta, ke beranda'}>
+  <img src="/bkc/assets/logo-emblem.png" width="46" height="46" alt="" />
+  <span class="brand-wordmark">BUMI KALA<br />CHARTA</span>
+</a>

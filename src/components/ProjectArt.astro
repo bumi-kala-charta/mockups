@@ -1,0 +1,11 @@
+---
+import Icon from './Icon.astro';
+const { kind = 'coastal', number = '01', title = 'Pemetaan', compact = false } = Astro.props;
+---
+<div class:list={['project-art', kind, { 'art-compact': compact }]} aria-hidden="true">
+  <span class="bkc-contour" data-pattern-density={kind === 'village' ? 'dense' : 'loose'}></span>
+  <span class="art-cross art-cross-one"><Icon name="crosshair" size={20} /></span><span class="art-cross art-cross-two"><Icon name="plus" size={15} /></span>
+  <div class="art-meta"><span>BKC / CATATAN LAPANGAN</span><Icon name="north" size={18} /></div>
+  <div class="art-center"><span class="art-number">{number}</span><span>{title}</span></div>
+  <div class="art-footer"><span>DOKUMENTASI CONTOH</span><span>2026</span></div>
+</div>

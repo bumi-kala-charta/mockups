@@ -1,0 +1,51 @@
+---
+import HeroLayout from '../../layouts/HeroLayout.astro';
+import Icon from '../../components/Icon.astro';
+import '../../styles/heroes/orbit.css';
+---
+
+<HeroLayout title="Orbit — BKC" variant="orbit" description="Satu bumi, banyak sudut pandang. Eksplorasi hero BKC dengan graticule dan lintasan orbital yang bergerak.">
+  <section class="orbit-hero" aria-labelledby="orbit-title">
+    <div class="orbit-scene" aria-hidden="true">
+      <div class="orbit-instrument">
+        <div class="orbit-globe-plane">
+          <span class="bkc-orbit"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="orbit-trajectory orbit-trajectory--one"><span></span></div>
+        <div class="orbit-trajectory orbit-trajectory--two"><span></span></div>
+        <div class="orbit-center">
+          <img src="/bkc/assets/mark-squirrel-white.png" alt="" width="116" height="116" />
+          <span>BUMI KALA CHARTA</span>
+        </div>
+        <span class="orbit-cross orbit-cross--north"><Icon name="plus" size={16} /></span>
+        <span class="orbit-cross orbit-cross--south"><Icon name="plus" size={16} /></span>
+        <span class="orbit-cross orbit-cross--west"><Icon name="plus" size={16} /></span>
+        <span class="orbit-cross orbit-cross--east"><Icon name="plus" size={16} /></span>
+        <span class="orbit-annotation orbit-annotation--north">RASA INGIN TAHU</span>
+        <span class="orbit-annotation orbit-annotation--south">TITIK TEMU PENGETAHUAN</span>
+        <div class="orbit-satellite-label"><span class="orbit-live-dot"></span><span>PERSPEKTIF TERHUBUNG</span></div>
+      </div>
+    </div>
+
+    <div class="h-wrap orbit-content">
+      <div class="orbit-intro">
+        <p class="h-eyebrow orbit-kicker"><span class="orbit-kicker-line"></span>GEODESI · GEOMATIKA · KOMUNITAS</p>
+        <h1 id="orbit-title">Banyak sudut.<br /><span>Satu bumi.</span></h1>
+        <p class="orbit-description">Dari pertanyaan di ruang diskusi hingga pengukuran di lapangan. Kami mempertemukan pengetahuan, manusia, dan tempat.</p>
+        <div class="orbit-actions">
+          <a class="h-button h-button--accent orbit-primary" href="/ruang/#tentang">Temukan ruang bersama<Icon name="arrow" size={20} /></a>
+          <a class="orbit-secondary" href="/atlas/#peta"><span>Jelajahi peta karya</span><Icon name="right" size={20} /></a>
+        </div>
+        <div class="orbit-origin"><Icon name="locate" size={18} /><p>Berpusat di Bandung.<br /><span>Terbuka untuk berbagai perspektif.</span></p></div>
+      </div>
+    </div>
+
+    <div class="orbit-bottom h-wrap">
+      <div class="orbit-bottom-caption"><span class="h-eyebrow">RUANG GERAK BKC</span><span>Saling terhubung.<br />Terus bertumbuh.</span></div>
+      <a href="/ruang/#aktivitas" class="orbit-domain"><span class="orbit-domain-no">01</span><span>Survei &<br />pemetaan</span><Icon name="arrow" size={20} /></a>
+      <a href="/ruang/#pengetahuan" class="orbit-domain"><span class="orbit-domain-no">02</span><span>Riset &<br />pengetahuan</span><Icon name="arrow" size={20} /></a>
+      <a href="/ruang/#kegiatan" class="orbit-domain"><span class="orbit-domain-no">03</span><span>Kelas &<br />percakapan</span><Icon name="arrow" size={20} /></a>
+    </div>
+    <span class="orbit-concept-note">MOTIF ORBIT BKC · VISUAL KONSEPTUAL</span>
+  </section>
+</HeroLayout>

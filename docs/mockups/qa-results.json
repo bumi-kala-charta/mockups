@@ -1,0 +1,60 @@
+[
+  {
+    "slug": "atlas",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "errors": [],
+    "violations": [],
+    "height": 6518
+  },
+  {
+    "slug": "observatorium",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "errors": [],
+    "violations": [],
+    "height": 6513
+  },
+  {
+    "slug": "ruang",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "errors": [],
+    "violations": [],
+    "height": 7517
+  },
+  {
+    "slug": "atlas",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "errors": [],
+    "violations": [],
+    "height": 10573
+  },
+  {
+    "slug": "observatorium",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "errors": [],
+    "violations": [],
+    "height": 10290
+  },
+  {
+    "slug": "ruang",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "errors": [],
+    "violations": [],
+    "height": 10686
+  },
+  {
+    "check": "no-js",
+    "status": "content renders; modal and map controls need JavaScript"
+  }
+]

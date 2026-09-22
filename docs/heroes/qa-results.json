@@ -1,0 +1,245 @@
+[
+  {
+    "slug": "kontur",
+    "width": 1440,
+    "overflow": false,
+    "height": 1000,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "orbit",
+    "width": 1440,
+    "overflow": false,
+    "height": 1001,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "sinyal",
+    "width": 1440,
+    "overflow": false,
+    "height": 1000,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "indeks",
+    "width": 1440,
+    "overflow": false,
+    "height": 1000,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "kontur",
+    "width": 390,
+    "overflow": false,
+    "height": 1176,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "orbit",
+    "width": 390,
+    "overflow": false,
+    "height": 1092,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "sinyal",
+    "width": 390,
+    "overflow": false,
+    "height": 1171,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "indeks",
+    "width": 390,
+    "overflow": false,
+    "height": 1154,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": [],
+    "violations": []
+  },
+  {
+    "slug": "kontur",
+    "width": 360,
+    "overflow": false,
+    "height": 1166,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "orbit",
+    "width": 360,
+    "overflow": false,
+    "height": 1115,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "sinyal",
+    "width": 360,
+    "overflow": false,
+    "height": 1135,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "indeks",
+    "width": 360,
+    "overflow": false,
+    "height": 1162,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "kontur",
+    "width": 768,
+    "overflow": false,
+    "height": 1341,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "orbit",
+    "width": 768,
+    "overflow": false,
+    "height": 939,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "sinyal",
+    "width": 768,
+    "overflow": false,
+    "height": 1438,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "indeks",
+    "width": 768,
+    "overflow": false,
+    "height": 1059,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "kontur",
+    "width": 1024,
+    "overflow": false,
+    "height": 1000,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "orbit",
+    "width": 1024,
+    "overflow": false,
+    "height": 1000,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "sinyal",
+    "width": 1024,
+    "overflow": false,
+    "height": 1000,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "indeks",
+    "width": 1024,
+    "overflow": false,
+    "height": 1000,
+    "broken": [],
+    "h1": 1,
+    "skipBottom": -28.400001525878906,
+    "errors": []
+  },
+  {
+    "slug": "kontur",
+    "check": "motion-and-interaction",
+    "status": "pass"
+  },
+  {
+    "slug": "orbit",
+    "check": "motion-and-interaction",
+    "status": "pass"
+  },
+  {
+    "slug": "sinyal",
+    "check": "motion-and-interaction",
+    "status": "pass"
+  },
+  {
+    "slug": "indeks",
+    "check": "motion-and-interaction",
+    "status": "pass"
+  },
+  {
+    "check": "cross-route-anchors-and-static-fallback",
+    "status": "pass",
+    "anchors": [
+      "/ruang/#tentang",
+      "/atlas/#karya",
+      "/ruang/#kegiatan",
+      "/atlas/#peta",
+      "/ruang/#aktivitas",
+      "/ruang/#pengetahuan",
+      "/observatorium/#peta",
+      "/atlas/#tentang",
+      "/observatorium/#pengetahuan"
+    ]
+  }
+]
